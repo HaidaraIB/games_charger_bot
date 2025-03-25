@@ -19,8 +19,8 @@ def build_user_keyboard(lang: str):
         ],
         [
             InlineKeyboardButton(
-                text=BUTTONS[lang]["my_account"],
-                callback_data="my_account",
+                text=BUTTONS[lang]["account_info"],
+                callback_data="account_info",
             ),
         ],
         [
@@ -83,6 +83,21 @@ def build_back_button(data: str, lang: str = models.Language.ARABIC.name):
             text=BUTTONS[lang]["back_button"],
             callback_data=data,
         ),
+    ]
+
+
+def build_confirmation_keyboard(data: str, lang: str):
+    return [
+        [
+            InlineKeyboardButton(
+                text=BUTTONS[lang]["yes_confirm"],
+                callback_data=f"yes_{data}",
+            ),
+            InlineKeyboardButton(
+                text=BUTTONS[lang]["no_confirm"],
+                callback_data=f"no_{data}",
+            ),
+        ]
     ]
 
 

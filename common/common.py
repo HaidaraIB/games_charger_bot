@@ -44,3 +44,7 @@ async def invalid_callback_data(update: Update, context: ContextTypes.DEFAULT_TY
 
 def get_lang(user_id: int):
     return models.User.get_by(conds={"user_id": user_id}).lang.name
+
+
+def format_float(f: float):
+    return f"{float(f):,.2f}".rstrip("0").rstrip(".")

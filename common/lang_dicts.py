@@ -13,6 +13,25 @@ TEXTS = {
         "change_lang": "اختر اللغة 🌐",
         "change_lang_success": "تم تغيير اللغة بنجاح ✅",
         "home_page": "القائمة الرئيسية 🔝",
+        "choose_product": "اختر المنتج",
+        "choose_group": "اختر المجموعة",
+        "choose_category": "اختر الباقة",
+        "category_out_of_stock": "هذه الباقة غير متوفرة حالياً ❗️",
+        "not_enough_balance": (
+            "ليس لديك رصيد كافٍ ❗️\n\n" "سعر الباقة: {}$\n" "رصيدك الحالي: {}$"
+        ),
+        "send_urlsocial": "أرسل رقم معرف اللاعب أو الID الخاص بك",
+        "confirm_buy": (
+            "{}\n\n"
+            "رقم معرف اللاعب: <code>{}</code>\n"
+            "سعر الباقة: <b>{}$</b>\n"
+            "رصيدك الحالي: <b>{}$</b>\n\n"
+            "هل أنت متأكد من أنك تريد الحصول على هذه الباقة؟"
+        ),
+        "create_order_success": (
+            "تم إنشاء الطلب بنجاح ✅\n\n" "رقم الطلب: <code>{}</code>"
+        ),
+        "create_order_fail": "An Error occured while creating your order, please try again later ❗️",
     },
     Language.ENGLISH.name: {
         "welcome_msg": "Welcome...",
@@ -26,11 +45,34 @@ TEXTS = {
         "change_lang": "Choose a language 🌐",
         "change_lang_success": "Language changed ✅",
         "home_page": "Home page 🔝",
+        "choose_product": "Choose Product",
+        "choose_group": "Choose Group",
+        "choose_category": "Choose Category",
+        "category_out_of_stock": "This category isn't available at the moment ❗️",
+        "not_enough_balance": (
+            "You don't have enough balance ❗️\n\n"
+            "Category price: {}$\n"
+            "Your current balance: {}$"
+        ),
+        "send_urlsocial": "Send your player ID",
+        "confirm_buy": (
+            "{}\n\n"
+            "Player ID: <code>{}</code>\n"
+            "Category price: <b>{}$</b>\n"
+            "Your current balance: <b>{}$</b>\n\n"
+            "Are you sure you want to buy this category?"
+        ),
+        "create_order_success": (
+            "Order created successfully ✅\n\n" "Order ID: <code>{}</code>"
+        ),
+        "create_order_fail": "حصل خطأ أثناء إنشاء الطلب يرجى إعادة المحاولة لاحقاً ❗️",
     },
 }
 
 BUTTONS = {
     Language.ARABIC.name: {
+        "yes_confirm": "نعم 👍",
+        "no_confirm": "لا 👎",
         "check_joined": "تحقق ✅",
         "bot_channel": "قناة البوت 📢",
         "back_button": "الرجوع 🔙",
@@ -38,10 +80,19 @@ BUTTONS = {
         "lang": "اللغة 🌐",
         "back_to_home_page": "العودة إلى القائمة الرئيسية 🔙",
         "products": "المنتجات 🛍",
-        "my_account": "معلومات الحساب 👤",
-        
+        "account_info": "معلومات الحساب 👤",
+        "freefire": "فري فاير 💣",
+        "pubg": "ببجي 🪖",
+        "jawaker": "جواكر ♠️",
+        "uc_bundles": "شدات 💵",
+        "diamonds": "جواهر 💎",
+        "memberships": "عضويات 📝",
+        "tokens": "توكنز 🪙",
+        "charge_account": "شحن الحساب 💳",
     },
     Language.ENGLISH.name: {
+        "yes_confirm": "Yes 👍",
+        "no_confirm": "No 👎",
         "check_joined": "Verify ✅",
         "bot_channel": "Bot's Channel 📢",
         "back_button": "Back 🔙",
@@ -49,6 +100,14 @@ BUTTONS = {
         "lang": "Language 🌐",
         "back_to_home_page": "Back to home page 🔙",
         "products": "Products 🛍",
-        "my_account": "Account Info 👤",
+        "account_info": "Account Info 👤",
+        "freefire": "Free Fire 💣",
+        "pubg": "PUBG 🪖",
+        "jawaker": "Jawaker ♠️",
+        "uc_bundles": "UC Bundles 💵",
+        "diamonds": "Diamonds 💎",
+        "memberships": "Memberships 📝",
+        "tokens": "Tokens 🪙",
+        "charge_account": "Charge Account 💳",
     },
 }
