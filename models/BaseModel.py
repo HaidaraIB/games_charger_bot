@@ -5,13 +5,15 @@ from sqlalchemy.orm import Session
 
 class BaseModel(Base):
     __abstract__ = True
+    __allow_unmapped__ = True
 
     id = sa.Column(sa.Integer, autoincrement=True, primary_key=True)
 
     @classmethod
     @lock_and_release
     async def add(cls, vals: dict, s: Session = None):
-        s.execute(sa.insert(cls).values(vals).prefix_with("OR IGNORE"))
+        res = s.execute(sa.insert(cls).values(vals).prefix_with("OR IGNORE"))
+        return res.lastrowid
 
     @classmethod
     @lock_and_release

@@ -31,7 +31,16 @@ TEXTS = {
         "create_order_success": (
             "تم إنشاء الطلب بنجاح ✅\n\n" "رقم الطلب: <code>{}</code>"
         ),
-        "create_order_fail": "An Error occured while creating your order, please try again later ❗️",
+        "create_order_fail": "حصل خطأ أثناء إنشاء الطلب يرجى إعادة المحاولة لاحقاً ❗️",
+        "choose_payment_method": "اختر وسيلة الدفع",
+        "send_screenshot": (
+            "أرسل المبلغ إلى أحد العناوين التالية:\n"
+            "{}\n\n"
+            "ثم أرسل لقطة شاشة أو رقم عملية الدفع إلى البوت لنقوم بتوثيقها"
+        ),
+        "charge_order_submited": (
+            "تم إرسال الطلب للمراجعة ✅\n" "رقم الطلب: <code>{}</code>"
+        ),
     },
     Language.ENGLISH.name: {
         "welcome_msg": "Welcome...",
@@ -65,7 +74,16 @@ TEXTS = {
         "create_order_success": (
             "Order created successfully ✅\n\n" "Order ID: <code>{}</code>"
         ),
-        "create_order_fail": "حصل خطأ أثناء إنشاء الطلب يرجى إعادة المحاولة لاحقاً ❗️",
+        "create_order_fail": "An Error occured while creating your order, please try again later ❗️",
+        "choose_payment_method": "Choose payment method",
+        "send_screenshot": (
+            "Send the money to one of the following addresses:\n"
+            "{}\n\n"
+            "and then send a screenshot of the operation details or just the operation number to the bot in order to verify it"
+        ),
+        "charge_order_submited": (
+            "Order submited successfully ✅\n" "Order ID: <code>{}</code>"
+        ),
     },
 }
 

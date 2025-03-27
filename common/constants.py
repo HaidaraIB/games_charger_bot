@@ -1,10 +1,13 @@
 from Config import Config
+from dateutil import tz
 
 BACK_TO_HOME_PAGE_TEXT = "العودة إلى القائمة الرئيسية 🔙"
 
 HOME_PAGE_TEXT = "القائمة الرئيسية 🔝"
 
 BACK_BUTTON_TEXT = "الرجوع 🔙"
+
+TIMEZONE = tz.gettz("Asia/Damascus")
 
 PUBG_UC_BUNDLES = [133811, 133810, 133809, 133808, 133803, 133800]
 FREEFIRE_MEMBERSHIPS = [21227, 21228, 21230, 143653, 143655]

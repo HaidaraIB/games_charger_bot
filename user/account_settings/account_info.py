@@ -1,16 +1,9 @@
 from telegram import Chat, Update, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import (
-    ContextTypes,
-    ConversationHandler,
-    CallbackQueryHandler,
-    MessageHandler,
-    filters,
-)
+from telegram.ext import ContextTypes, CallbackQueryHandler, ConversationHandler
 import models
-from user.account_info.common import stringify_account
-from common.common import get_lang
+from user.account_settings.common import stringify_account
 from common.lang_dicts import *
-from common.keyboards import build_back_to_home_page_button, build_back_button
+from common.keyboards import build_back_to_home_page_button
 
 
 async def account_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -28,9 +21,7 @@ async def account_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
             text=stringify_account(account=user_account),
             reply_markup=InlineKeyboardMarkup.from_column(keyboard),
         )
+        return ConversationHandler.END
 
 
-account_info_handler = CallbackQueryHandler(
-    account_info,
-    "^account_info$"
-)
+account_info_handler = CallbackQueryHandler(account_info, "^account_info$|^back_to_charge_account$")

@@ -1,1 +1,0 @@
-from user.account_info.account_info import account_info_handler

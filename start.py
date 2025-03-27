@@ -29,6 +29,23 @@ async def inits(app: Application):
             "is_admin": True,
         },
     )
+    await models.PaymentMethod.init_payment_methods()
+    await models.PaymentMethodAddress.add(
+        vals=[
+            {
+                "payment_method_name": models.PaymentMethodName.SYRCASH,
+                "address": "1234",
+            },
+            {
+                "payment_method_name": models.PaymentMethodName.MTNCASH,
+                "address": "5678",
+            },
+            {
+                "payment_method_name": models.PaymentMethodName.USDT,
+                "address": "9101112",
+            },
+        ]
+    )
 
 
 async def set_commands(update: Update, context: ContextTypes.DEFAULT_TYPE):
