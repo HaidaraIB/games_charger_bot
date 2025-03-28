@@ -2,7 +2,6 @@ import sqlalchemy as sa
 from models.BaseModel import BaseModel
 from models.Language import Language
 from sqlalchemy.orm import relationship
-from models.ChargeOrder import ChargeOrder
 
 
 class User(BaseModel):
@@ -15,7 +14,7 @@ class User(BaseModel):
     is_banned = sa.Column(sa.Boolean, default=0)
     is_admin = sa.Column(sa.Boolean, default=0)
 
-    charge_orders = relationship(ChargeOrder)
+    charge_orders = relationship("ChargeOrder")
 
     balance = sa.Column(sa.Float, default=0)
 

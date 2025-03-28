@@ -17,10 +17,8 @@ from common.keyboards import (
     build_back_to_home_page_button,
     build_back_button,
     build_user_keyboard,
-)
-from user.account_settings.common import (
     build_payemnt_methods_keyboard,
-    build_handle_charge_order_keyboard,
+    build_handle_charge_order_keyboard
 )
 from Config import Config
 from datetime import datetime
@@ -33,7 +31,7 @@ async def charge_account(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_chat.type == Chat.PRIVATE:
         lang = get_lang(update.effective_user.id)
         keyboard = build_payemnt_methods_keyboard()
-        keyboard.append(build_back_button(data="back_to_charge_account", lang=lang))
+        keyboard.append(build_back_button(data="back_to_account_info", lang=lang))
         keyboard.append(build_back_to_home_page_button(lang=lang, is_admin=False)[0])
         await update.callback_query.edit_message_text(
             text=TEXTS[lang]["choose_payment_method"],
@@ -47,7 +45,10 @@ async def choose_payment_method(update: Update, context: ContextTypes.DEFAULT_TY
         lang = get_lang(update.effective_user.id)
         if not update.callback_query.data.startswith("back"):
             payment_method_name = update.callback_query.data
-            payment_method = models.PaymentMethod.get_by({"name": payment_method_name})
+            payment_method = models.PaymentMethod.get_by(
+                {"name": payment_method_name},
+                eager_load=["addresses"],
+            )
             if not payment_method.is_on:
                 await update.callback_query.answer(
                     text="هذه الوسيلة متوقفة حالياً ❗️",
@@ -58,18 +59,22 @@ async def choose_payment_method(update: Update, context: ContextTypes.DEFAULT_TY
             context.user_data["payment_method_name"] = payment_method_name
         else:
             payment_method_name = context.user_data["payment_method_name"]
-            payment_method = models.PaymentMethod.get_by({"name": payment_method_name})
+            payment_method = models.PaymentMethod.get_by(
+                {"name": payment_method_name}, eager_load=["addresses"]
+            )
 
-        addresses = models.PaymentMethodAddress.get_by(
-            conds={"payment_method_name": payment_method_name}, all=True
-        )
         back_buttons = [
             build_back_button(data="back_to_choose_payemnt_method", lang=lang),
             build_back_to_home_page_button(lang=lang, is_admin=False)[0],
         ]
         await update.callback_query.edit_message_text(
             text=TEXTS[lang]["send_screenshot"].format(
-                "\n".join([f"<code>{address.address}</code>" for address in addresses])
+                "\n".join(
+                    [
+                        f"<code>{address.address}</code>"
+                        for address in payment_method.addresses
+                    ]
+                )
             ),
             reply_markup=InlineKeyboardMarkup(back_buttons),
         )

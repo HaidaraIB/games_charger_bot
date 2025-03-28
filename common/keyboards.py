@@ -43,6 +43,12 @@ def build_admin_keyboard():
         ],
         [
             InlineKeyboardButton(
+                text="إعدادات وسائل الدفع 💳",
+                callback_data="payment_methods_settings",
+            )
+        ],
+        [
+            InlineKeyboardButton(
                 text="حظر/فك حظر 🔓🔒",
                 callback_data="ban_unban",
             )
@@ -151,4 +157,33 @@ def build_keyboard(columns: int, texts: list, buttons_data: list):
         ]
         if row:  # Only append non-empty rows
             keyboard.append(row)
+    return keyboard
+
+
+def build_payemnt_methods_keyboard():
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                text=method.value,
+                callback_data=method.name,
+            )
+        ]
+        for method in models.PaymentMethodName
+    ]
+    return keyboard
+
+
+def build_handle_charge_order_keyboard(order_id: int):
+    keyboard = [
+        [
+            InlineKeyboardButton(
+                text="تأكيد ✅",
+                callback_data=f"approve_charge_order_{order_id}",
+            ),
+            InlineKeyboardButton(
+                text="إلغاء ❌",
+                callback_data=f"decline_charge_order_{order_id}",
+            ),
+        ]
+    ]
     return keyboard

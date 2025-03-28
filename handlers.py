@@ -18,6 +18,8 @@ from admin.admin_calls import *
 from admin.admin_settings import *
 from admin.broadcast import *
 from admin.ban import *
+from admin.payment_methods_settings import *
+from admin.handle_charge_orders import *
 
 from models import create_tables
 
@@ -43,6 +45,15 @@ def main():
     app.add_handler(charge_account_handler)
     app.add_handler(account_info_handler)
 
+    app.add_handler(add_payment_method_address_handler)
+    app.add_handler(del_payment_method_address_handler)
+    app.add_handler(payment_methods_settings_handler)
+    app.add_handler(choose_payemnt_method_handler)
+
+    app.add_handler(handle_charge_orders_handler)
+    app.add_handler(back_to_handle_charge_orders_handler)
+    app.add_handler(get_charge_order_decline_reason_handler)
+    app.add_handler(get_charge_order_amount_handler)
 
     # ADMIN SETTINGS
     app.add_handler(admin_settings_handler)

@@ -24,4 +24,4 @@ async def account_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return ConversationHandler.END
 
 
-account_info_handler = CallbackQueryHandler(account_info, "^account_info$|^back_to_charge_account$")
+account_info_handler = CallbackQueryHandler(account_info, "^account_info$|^back_to_account_info$")

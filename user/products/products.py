@@ -175,6 +175,7 @@ async def get_urlsocial(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(
                 text=TEXTS[lang]["confirm_buy"].format(
                     category["name"],
+                    urlsocial,
                     format_float(context.user_data["final_price"]),
                     format_float(user.balance),
                 ),
@@ -184,6 +185,7 @@ async def get_urlsocial(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.callback_query.edit_message_text(
                 text=TEXTS[lang]["confirm_buy"].format(
                     category["name"],
+                    urlsocial,
                     format_float(context.user_data["final_price"]),
                     format_float(user.balance),
                 ),
@@ -224,16 +226,16 @@ async def confirm_buy(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         order_info = create_order.json()
 
-        if order_info["success"]:
+        if order_info.get("success", False):
             await update.callback_query.edit_message_text(
                 text=TEXTS[lang]["create_order_success"].format(order_info["order_id"]),
-                reply_markup=build_user_keyboard(),
+                reply_markup=build_user_keyboard(lang=lang),
             )
         else:
             await user.update_one(update_dict={"balance": user.balance})
             await update.callback_query.edit_message_text(
                 text=TEXTS[lang]["create_order_fail"],
-                reply_markup=build_user_keyboard(),
+                reply_markup=build_user_keyboard(lang=lang),
             )
         return ConversationHandler.END
 

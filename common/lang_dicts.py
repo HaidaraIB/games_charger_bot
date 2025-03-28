@@ -41,6 +41,10 @@ TEXTS = {
         "charge_order_submited": (
             "تم إرسال الطلب للمراجعة ✅\n" "رقم الطلب: <code>{}</code>"
         ),
+        "charge_order_declined": (
+            "للأسف تم رفض طلب شحن الرصيد رقم <code>{}</code> ❌\n" "السبب:\n" "{}"
+        ),
+        "charge_order_approved": "مبروك تمت الموافقة على طلب شحن الرصيد رقم <code>{}</code> 🎉",
     },
     Language.ENGLISH.name: {
         "welcome_msg": "Welcome...",
@@ -84,6 +88,12 @@ TEXTS = {
         "charge_order_submited": (
             "Order submited successfully ✅\n" "Order ID: <code>{}</code>"
         ),
+        "charge_order_declined": (
+            "Unfortunately, your charge order number <code>{}</code> has been declined ❌\n"
+            "Reason:\n"
+            "{}"
+        ),
+        "charge_order_approved": "Congrats, your charge order number <code>{}</code> has been approved 🎉",
     },
 }
 

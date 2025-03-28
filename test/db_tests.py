@@ -13,8 +13,11 @@ from common.common import get_lang
 async def main():
     load_dotenv()
     create_tables()
-    l = get_lang(755501092)
-    print(l)
+    # p = PaymentMethod.get_by(conds={"id": 1}, eager_load=["addresses"])
+    # p = PaymentMethod.get_by(conds={"id": 1})
+    # print(p.addresses)
+    a = PaymentMethodAddress.get_by(conds={"id": 1})
+    print(a.payment_method_name)
 
 
 asyncio.run(main())

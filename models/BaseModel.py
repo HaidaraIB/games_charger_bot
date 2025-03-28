@@ -1,6 +1,6 @@
 import sqlalchemy as sa
 from models.DB import Base, lock_and_release, connect_and_close
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 
 class BaseModel(Base):
@@ -35,15 +35,25 @@ class BaseModel(Base):
 
     @classmethod
     @connect_and_close
-    def get_by(cls, conds: dict = None, all: bool = False, s: Session = None):
-        if conds:
-            res = s.scalars(
-                sa.select(cls).where(
-                    sa.and_(*[getattr(cls, attr) == val for attr, val in conds.items()])
-                )
+    def get_by(
+        cls,
+        conds: dict = None,
+        all: bool = False,
+        eager_load: list[str] = [],
+        s: Session = None,
+    ):
+        query = sa.select(cls)
+
+        if eager_load:
+            query = query.options(
+                joinedload(*[getattr(cls, relationship) for relationship in eager_load])
             )
-            if all:
-                return res.all()
-            return res.first()
-        res = s.scalars(sa.select(cls))
-        return res.all()
+
+        if conds:
+            query = query.where(
+                sa.and_(*[getattr(cls, attr) == val for attr, val in conds.items()])
+            )
+
+        # Execute query
+        res = s.scalars(query)
+        return res.all() if all else res.first()

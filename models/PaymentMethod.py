@@ -6,7 +6,6 @@ from models.BaseModel import BaseModel
 from models.PaymentMethodAddress import PaymentMethodAddress
 from models.ChargeOrder import ChargeOrder
 
-
 class PaymentMethodName(Enum):
     SYRCASH = "Syriatel Cash🇸🇾"
     MTNCASH = "MTN Cash🇸🇾"
@@ -17,7 +16,7 @@ class PaymentMethod(BaseModel):
     __tablename__ = "payment_methods"
     name = sa.Column(sa.Enum(PaymentMethodName), unique=True)
     is_on = sa.Column(sa.Boolean, default=1)
-    addresses = relationship(PaymentMethodAddress)
+    addresses: list[PaymentMethodAddress] = relationship(PaymentMethodAddress)
     charge_orders = relationship(ChargeOrder)
 
     @classmethod

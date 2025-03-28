@@ -3,6 +3,7 @@ import models
 from common.common import format_float
 from datetime import datetime
 
+
 def stringify_account(account: models.User):
     if account.lang == models.Language.ARABIC:
         return (
@@ -26,39 +27,27 @@ def stringify_charge_order(charge_order: models.ChargeOrder):
         "طلب شحن رصيد 💳\n\n"
         f"آيدي المستخدم: <code>{user.user_id}</code>\n"
         f"اسمه: {f'@{user.username}' if user.username else f'<b>{user.name}</b>'}\n"
+        f"اللغة: <i><b>{user.lang.value}</b></i>\n"
         f"رصيده الحالي: <b>{format_float(user.balance)}</b>\n"
-        f"وسيلة الدفع: <b>{models.PaymentMethodName(charge_order.payment_method_name).value}</b>\n"
+        f"وسيلة الدفع: <b>{charge_order.payment_method_name.value}</b>\n"
+        f"حالة الطلب: <b>{charge_order.status.name}</b>\n"
         + (
             f"رقم العملية: <code>{charge_order.operation_number}</code>\n"
             if charge_order.operation_number
             else ""
         )
-        + f"تاريخ الطلب:\n<b>{charge_order.order_date.strftime("%Y-%m-%d %H:%M:%S")}</b>"
-    )
-
-def build_payemnt_methods_keyboard():
-    keyboard = [
-        [
-            InlineKeyboardButton(
-                text=method.value,
-                callback_data=method.name,
+        + f"تاريخ الطلب:\n<b>{charge_order.order_date.strftime('%Y-%m-%d %H:%M:%S')}</b>\n"
+        + (
+            f"تاريخ القبول:\n<b>{charge_order.approve_date.strftime('%Y-%m-%d %H:%M:%S')}</b>\n"
+            if charge_order.approve_date
+            else ""
+        )
+        + (
+            (
+                f"تاريخ الرفض:\n<b>{charge_order.decline_date.strftime('%Y-%m-%d %H:%M:%S')}</b>\n"
+                f"سبب الرفض:\n<b>{charge_order.decline_reason}</b>"
             )
-        ]
-        for method in models.PaymentMethodName
-    ]
-    return keyboard
-
-
-def build_handle_charge_order_keyboard(order_id:int):
-    keyboard = [
-        [
-            InlineKeyboardButton(
-                text="تأكيد ✅",
-                callback_data=f"verify_order_{order_id}"
-            ),
-            InlineKeyboardButton(
-                text="إلغاء ❌",
-                callback_data=f"decline_order_{order_id}"
-            ),
-        ]
-    ]
+            if charge_order.decline_date
+            else ""
+        )
+    )
