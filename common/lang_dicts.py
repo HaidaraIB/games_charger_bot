@@ -112,7 +112,7 @@ TEXTS = {
         "buy_orders": (
             "Buy Orders 🛒\n\n" f"<i>Note:</i> Only the last 20 orders are shown"
         ),
-        "no_orders_yet": "You Don't have any such orders yet ❗️"
+        "no_orders_yet": "You don't have {} orders yet ❗️"
     },
 }
 

@@ -237,6 +237,7 @@ async def confirm_buy(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     "group": context.user_data["group"],
                     "category": context.user_data["category_name"],
                     "urlsocial": context.user_data["urlsocial"],
+                    "price": context.user_data["final_price"],
                     "order_date": datetime.now(tz=TIMEZONE),
                 }
             )

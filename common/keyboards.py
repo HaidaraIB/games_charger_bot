@@ -55,13 +55,19 @@ def build_admin_keyboard():
         ],
         [
             InlineKeyboardButton(
-                text="إخفاء/إظهار كيبورد معرفة الآيديات🪄",
+                text="إخفاء/إظهار كيبورد معرفة الآيديات 🪄",
                 callback_data="hide_ids_keyboard",
             )
         ],
         [
             InlineKeyboardButton(
-                text="رسالة جماعية👥",
+                text="المستخدمين 👤",
+                callback_data="users",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="رسالة جماعية 👥",
                 callback_data="broadcast",
             )
         ],

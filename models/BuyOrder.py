@@ -11,5 +11,6 @@ class BuyOrder(BaseModel):
     product = sa.Column(sa.String)
     group = sa.Column(sa.String)
     category = sa.Column(sa.String)
+    price = sa.Column(sa.Float)
     urlsocial = sa.Column(sa.String)
     order_date = sa.Column(sa.TIMESTAMP)

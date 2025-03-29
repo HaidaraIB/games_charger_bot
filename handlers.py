@@ -20,6 +20,7 @@ from admin.broadcast import *
 from admin.ban import *
 from admin.payment_methods_settings import *
 from admin.handle_charge_orders import *
+from admin.users import *
 
 from models import create_tables
 
@@ -37,6 +38,8 @@ def main():
             callback=invalid_callback_data, pattern=InvalidCallbackData
         )
     )
+
+    app.add_handler(users_handler)
 
     app.add_handler(user_settings_handler)
     app.add_handler(change_lang_handler)

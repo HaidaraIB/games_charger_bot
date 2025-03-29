@@ -28,6 +28,7 @@ class ChargeOrder(BaseModel):
 
     user_id = sa.Column(sa.ForeignKey("users.user_id"))
     payment_method_name = sa.Column(sa.ForeignKey("payment_methods.name"))
+    amount = sa.Column(sa.Float)
     photo = sa.Column(sa.String)
     operation_number = sa.Column(sa.String)
     status = sa.Column(sa.Enum(OrderStatus), default=OrderStatus.PENDING)
@@ -66,6 +67,7 @@ class ChargeOrder(BaseModel):
             {
                 cls.status: OrderStatus.APPROVED,
                 cls.approve_date: datetime.now(tz=TIMEZONE),
+                cls.amount: amount,
             }
         )
         s.query(User).filter_by(user_id=user_id).update(

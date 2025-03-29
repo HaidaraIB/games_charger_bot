@@ -56,7 +56,10 @@ async def choose_order_type(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             prefix = "charge_order_"
             order_id = "id"
-            ar_orders_type = "شحن رصيد"
+            if lang == models.Language.ARABIC.name:
+                orders_type_name = "شحن رصيد"
+            else:
+                orders_type_name = "charge"
         elif orders_type.startswith("my_buy_orders"):
             text = TEXTS[lang]["buy_orders"]
             orders = models.BuyOrder.get_by(
@@ -66,11 +69,14 @@ async def choose_order_type(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
             prefix = "buy_order_"
             order_id = "order_id"
-            ar_orders_type = "شراء"
+            if lang == models.Language.ARABIC.name:
+                orders_type_name = "شراء"
+            else:
+                orders_type_name = "buy"
 
         if not orders:
             await update.callback_query.answer(
-                text=TEXTS[lang]["no_orders_yet"].format(ar_orders_type),
+                text=TEXTS[lang]["no_orders_yet"].format(orders_type_name),
                 show_alert=True,
             )
             return
