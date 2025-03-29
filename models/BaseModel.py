@@ -39,6 +39,7 @@ class BaseModel(Base):
         cls,
         conds: dict = None,
         all: bool = False,
+        limit: int = None,
         eager_load: list[str] = [],
         s: Session = None,
     ):
@@ -53,6 +54,8 @@ class BaseModel(Base):
             query = query.where(
                 sa.and_(*[getattr(cls, attr) == val for attr, val in conds.items()])
             )
+        if limit:
+            query = query.limit(limit)
 
         # Execute query
         res = s.scalars(query)

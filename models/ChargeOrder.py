@@ -1,6 +1,7 @@
 import sqlalchemy as sa
 from models.BaseModel import BaseModel, lock_and_release
 from models.User import User
+from models.Language import Language
 from sqlalchemy.orm import Session
 from enum import Enum
 from datetime import datetime
@@ -8,9 +9,18 @@ from common.constants import *
 
 
 class OrderStatus(Enum):
-    PENDING = "pending"
-    APPROVED = "approved"
-    DECLINED = "declined"
+    PENDING = {
+        Language.ENGLISH.name: "pending",
+        Language.ARABIC.name: "قيد التنفيذ",
+    }
+    APPROVED = {
+        Language.ENGLISH.name: "approved",
+        Language.ARABIC.name: "تمت الموافقة",
+    }
+    DECLINED = {
+        Language.ENGLISH.name: "declined",
+        Language.ARABIC.name: "مرفوض",
+    }
 
 
 class ChargeOrder(BaseModel):

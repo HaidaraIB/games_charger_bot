@@ -1,7 +1,7 @@
 from telegram import InlineKeyboardButton
 from common.lang_dicts import *
 from common.constants import *
-
+import models
 
 def build_products_keyboard(lang: str):
     keyboard = [
@@ -78,3 +78,5 @@ def filter_by_id(products: list[dict], category_id: int):
     for product in products:
         if product["id"] == category_id:
             return product
+
+

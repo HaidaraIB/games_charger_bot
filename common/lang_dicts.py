@@ -45,6 +45,17 @@ TEXTS = {
             "للأسف تم رفض طلب شحن الرصيد رقم <code>{}</code> ❌\n" "السبب:\n" "{}"
         ),
         "charge_order_approved": "مبروك تمت الموافقة على طلب شحن الرصيد رقم <code>{}</code> 🎉",
+        "my_orders": "طلباتي 📦",
+        "charge_orders": (
+            "طلبات الشحن 🔌\n\n"
+            f"<i>ملاحظة:</i> يتيح البوت العودة إلى آخر 20 طلباً فقط."
+        ),
+        "buy_orders": (
+            "طلبات الشراء 🛒\n\n"
+            f"<i>ملاحظة:</i> يتيح البوت العودة إلى آخر 20 طلباً فقط."
+        ),
+        "no_orders_yet": "ليس لديك طلبات {} بعد ❗️"
+
     },
     Language.ENGLISH.name: {
         "welcome_msg": "Welcome...",
@@ -94,6 +105,14 @@ TEXTS = {
             "{}"
         ),
         "charge_order_approved": "Congrats, your charge order number <code>{}</code> has been approved 🎉",
+        "my_orders": "My Orders 📦",
+        "charge_orders": (
+            "Charge Orders 🔌\n\n" f"<i>Note:</i> Only the last 20 orders are shown"
+        ),
+        "buy_orders": (
+            "Buy Orders 🛒\n\n" f"<i>Note:</i> Only the last 20 orders are shown"
+        ),
+        "no_orders_yet": "You Don't have any such orders yet ❗️"
     },
 }
 
@@ -117,6 +136,9 @@ BUTTONS = {
         "memberships": "عضويات 📝",
         "tokens": "توكنز 🪙",
         "charge_account": "شحن الحساب 💳",
+        "my_orders": "طلباتي 📦",
+        "charge_orders": "طلبات الشحن 🔌",
+        "buy_orders": "طلبات الشراء 🛒",
     },
     Language.ENGLISH.name: {
         "yes_confirm": "Yes 👍",
@@ -137,5 +159,8 @@ BUTTONS = {
         "memberships": "Memberships 📝",
         "tokens": "Tokens 🪙",
         "charge_account": "Charge Account 💳",
+        "my_orders": "My Orders 📦",
+        "charge_orders": "Charge Orders 🔌",
+        "buy_orders": "Buy Orders 🛒",
     },
 }

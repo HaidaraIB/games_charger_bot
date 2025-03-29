@@ -43,6 +43,7 @@ def main():
 
     app.add_handler(products_handler)
     app.add_handler(charge_account_handler)
+    app.add_handler(my_orders_handler)
     app.add_handler(account_info_handler)
 
     app.add_handler(add_payment_method_address_handler)

@@ -26,6 +26,7 @@ from common.keyboards import (
     build_user_keyboard,
 )
 import requests
+from datetime import datetime
 
 PRODUCT, GROUP, CATEGORY, URLSOCIAL, CONFIRM_BUY = range(5)
 
@@ -123,6 +124,7 @@ async def choose_category(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data["final_price"] = category["final_price"] + (
             category["final_price"] * 0.1
         )
+        context.user_data["category_name"] = category['name']
 
         user = models.User.get_by(conds={"user_id": update.effective_user.id})
         if category["final_price"] > user.balance:
@@ -227,6 +229,17 @@ async def confirm_buy(update: Update, context: ContextTypes.DEFAULT_TYPE):
         order_info = create_order.json()
 
         if order_info.get("success", False):
+            await models.BuyOrder.add(
+                vals={
+                    "order_id": order_info["order_id"],
+                    "user_id": update.effective_user.id,
+                    "product": context.user_data["product"],
+                    "group": context.user_data["group"],
+                    "category": context.user_data["category_name"],
+                    "urlsocial": context.user_data["urlsocial"],
+                    "order_date": datetime.now(tz=TIMEZONE),
+                }
+            )
             await update.callback_query.edit_message_text(
                 text=TEXTS[lang]["create_order_success"].format(order_info["order_id"]),
                 reply_markup=build_user_keyboard(lang=lang),
