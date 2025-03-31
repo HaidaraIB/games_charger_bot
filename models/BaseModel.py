@@ -40,6 +40,7 @@ class BaseModel(Base):
         conds: dict = None,
         all: bool = False,
         limit: int = None,
+        group_by: str = [],
         eager_load: list[str] = [],
         s: Session = None,
     ):

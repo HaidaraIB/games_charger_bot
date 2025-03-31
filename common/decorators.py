@@ -3,6 +3,7 @@ from telegram.ext import ContextTypes
 from common.force_join import check_if_user_member
 import functools
 import models
+from common.common import check_referral
 
 
 def check_if_user_banned_dec(func):
@@ -41,6 +42,7 @@ def add_new_user_dec(func):
                     "name": new_user.full_name,
                 },
             )
+            await check_referral(update=update, context=context)
         return await func(update, context, *args, **kwargs)
 
     return wrapper

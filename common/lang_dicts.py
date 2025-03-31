@@ -54,7 +54,22 @@ TEXTS = {
             "طلبات الشراء 🛒\n\n"
             f"<i>ملاحظة:</i> يتيح البوت العودة إلى آخر 20 طلباً فقط."
         ),
-        "no_orders_yet": "ليس لديك طلبات {} بعد ❗️"
+        "no_orders_yet": "ليس لديك طلبات {} بعد ❗️",
+        "referral": "الإحالات 🫂",
+        "max_referral_links_exceeded": "وصلت إلى الحد الأقصى من روابط الإحالة: 3 روابط ❗️",
+        "create_referral_link_success": (
+            "رابط الإحالة الجديد الخاص بك:\n"
+            "<code>{}</code>\n\n"
+            "اضغط /start للمتابعة"
+        ),
+        "choose_referral_link_to_revoke": "اختر الرابط الذي تريد حذفه",
+        "last_referral_link_revoke_attemp": "يجب أن يكون لديك رابط إحالة واحد على الأقل ❗️",
+        "you_have_no_referral_links_yet": (
+            "ليس لديك روابط إحالة ❗️\n" "يمكنك إنشاء رابط بالضغط على الزر أدناه"
+        ),
+        "referral_registered": "تم التسجيل عن طريق رابط إحالة {} بنجاح ✅",
+        "new_referral_notification": "تسجيل جديد عبر كود الإحالة 🎉: <code>{}</code>",
+        "revoke_referral_link_success": "تم حذف رابط الإحالة بنجاح ✅",
 
     },
     Language.ENGLISH.name: {
@@ -112,7 +127,23 @@ TEXTS = {
         "buy_orders": (
             "Buy Orders 🛒\n\n" f"<i>Note:</i> Only the last 20 orders are shown"
         ),
-        "no_orders_yet": "You don't have {} orders yet ❗️"
+        "no_orders_yet": "You don't have {} orders yet ❗️",
+        "referral": "Referrals 🫂",
+        "max_referral_links_exceeded": "You've reached the maximum number of referral links allowed: 3 Links ❗️",
+        "create_referral_link_success": (
+            "Here's Your new Referral link:\n"
+            "<code>{}</code>\n\n"
+            "press /start to continue"
+        ),
+        "choose_referral_link_to_revoke": "Choose the link you want to revoke",
+        "last_referral_link_revoke_attemp": "You must have at least one Referral link ❗️",
+        "you_have_no_referral_links_yet": (
+            "You don't have any referral link ❗️\n"
+            "you can create one from the button below"
+        ),
+        "referral_registered": "Successfully registered from {} referral link ✅",
+        "new_referral_notification": "New referral from link code 🎉: <code>{}</code>",
+        "revoke_referral_link_success": "Succesfully revoked ✅",
     },
 }
 
@@ -139,6 +170,10 @@ BUTTONS = {
         "my_orders": "طلباتي 📦",
         "charge_orders": "طلبات الشحن 🔌",
         "buy_orders": "طلبات الشراء 🛒",
+        "referral": "الإحالات 🫂",
+        "create_new_referral_link": "إنشاء رابط إحالة جديد ➕",
+        "revoke_referral_link": "حذف رابط إحالة ✖️",
+        "referral_stats": "إحصائيات 📊",
     },
     Language.ENGLISH.name: {
         "yes_confirm": "Yes 👍",
@@ -162,5 +197,9 @@ BUTTONS = {
         "my_orders": "My Orders 📦",
         "charge_orders": "Charge Orders 🔌",
         "buy_orders": "Buy Orders 🛒",
+        "referral": "Referrals 🫂",
+        "create_new_referral_link": "Create New Referral Link ➕",
+        "revoke_referral_link": "Revoke Referral Link ✖️",
+        "referral_stats": "Statistics 📊",
     },
 }
