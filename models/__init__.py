@@ -5,3 +5,5 @@ from models.PaymentMethodAddress import PaymentMethodAddress
 from models.PaymentMethod import PaymentMethod, PaymentMethodName
 from models.ChargeOrder import ChargeOrder
 from models.BuyOrder import BuyOrder
+from models.ReferralLink import ReferralLink
+from models.ReferralRelation import ReferralRelation

@@ -1,1 +1,2 @@
-from user.user_settings.user_settings import *
+from user.user_settings.user_settings import change_lang_handler, user_settings_handler
+from user.user_settings.referral import referral_handler
