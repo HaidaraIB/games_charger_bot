@@ -58,9 +58,9 @@ def stringify_referral_stats(user: models.User, bot_username: str, lang: str):
             + (
                 (
                     "\n"
-                    + "\n".join(
+                    + "\n\n".join(
                         [
-                            f"<code>{create_deep_linked_url(bot_username=bot_username, payload=referral_link.link_code)}</code>"
+                            f"🔹 <code>{create_deep_linked_url(bot_username=bot_username, payload=referral_link.link_code)}</code>"
                             for referral_link in user.referral_links
                         ]
                     )
@@ -73,9 +73,9 @@ def stringify_referral_stats(user: models.User, bot_username: str, lang: str):
             + (
                 (
                     "\n"
-                    + "\n".join(
+                    + "\n\n".join(
                         [
-                            f"<code>{relation_count[0]}</code>: <b>{relation_count[1]}</b>"
+                            f"🔸 <code>{relation_count[0]}</code>: <b>{relation_count[1]}</b>"
                             for relation_count in relations_count_by_link
                         ]
                     )
@@ -94,9 +94,9 @@ def stringify_referral_stats(user: models.User, bot_username: str, lang: str):
             + (
                 (
                     "\n"
-                    + "\n".join(
+                    + "\n\n".join(
                         [
-                            f"<code>{create_deep_linked_url(bot_username=bot_username, payload=referral_link.link_code)}</code>"
+                            f"🔹 <code>{create_deep_linked_url(bot_username=bot_username, payload=referral_link.link_code)}</code>"
                             for referral_link in user.referral_links
                         ]
                     )
@@ -109,9 +109,9 @@ def stringify_referral_stats(user: models.User, bot_username: str, lang: str):
             + (
                 (
                     "\n"
-                    + "\n".join(
+                    + "\n\n".join(
                         [
-                            f"<code>{relation_count[0]}</code>: <b>{relation_count[1]}</b>"
+                            f"🔸 <code>{relation_count[0]}</code>: <b>{relation_count[1]}</b>"
                             for relation_count in relations_count_by_link
                         ]
                     )
