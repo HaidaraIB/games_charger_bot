@@ -1,5 +1,5 @@
 from telegram import Update, Chat, InlineKeyboardMarkup
-from telegram.ext import ContextTypes, CallbackQueryHandler
+from telegram.ext import ContextTypes, CallbackQueryHandler, ConversationHandler
 from user.user_settings.common import build_settings_keyboard
 from common.common import get_lang
 from common.keyboards import (
@@ -20,6 +20,7 @@ async def user_settings(update: Update, context: ContextTypes.DEFAULT_TYPE):
             text=TEXTS[lang]["settings"],
             reply_markup=InlineKeyboardMarkup(keyboard),
         )
+        return ConversationHandler.END
 
 
 async def change_lang(update: Update, context: ContextTypes.DEFAULT_TYPE):

@@ -41,9 +41,9 @@ def main():
 
     app.add_handler(users_handler)
 
-    app.add_handler(user_settings_handler)
     app.add_handler(referral_handler)
     app.add_handler(change_lang_handler)
+    app.add_handler(user_settings_handler)
 
     app.add_handler(products_handler)
     app.add_handler(charge_account_handler)
