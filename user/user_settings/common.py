@@ -85,7 +85,8 @@ def stringify_referral_stats(user: models.User, bot_username: str, lang: str):
                 else " <b>لا يوجد</b>"
             )
             + "\n\n"
-            + f"رابط الإحالة الذي قمت بالتسجيل منه:"(
+            + f"رابط الإحالة الذي قمت بالتسجيل منه:"
+            + (
                 (
                     "\n"
                     f"♦️ <code>{create_deep_linked_url(bot_username=bot_username, payload=referred_relation.link_code)}</code>"
@@ -128,7 +129,8 @@ def stringify_referral_stats(user: models.User, bot_username: str, lang: str):
                 else " <b>N/A</b>"
             )
             + "\n\n"
-            + "Referral link you registered from:"(
+            + "Referral link you registered from:"
+            + (
                 (
                     "\n"
                     f"♦️ <code>{create_deep_linked_url(bot_username=bot_username, payload=referred_relation.link_code)}</code>"
